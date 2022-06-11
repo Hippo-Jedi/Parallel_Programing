@@ -1,0 +1,9 @@
+
+
+echo "Threads, numNodes, megaHgt/Sec, Volume"
+foreach threads (1 2 4 8)
+  foreach numNodes (4 8 16 32 64 128 256 512 1024 2048)
+        clang++ -Xpreprocessor -fopenmp -I/usr/local/include -L/usr/local/lib -lomp  main.cpp -DNUMT=$threads -DNUMNODES=$numNodes -o main
+    ./main
+  end
+end
